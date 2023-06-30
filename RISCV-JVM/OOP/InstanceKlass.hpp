@@ -13,6 +13,16 @@
 
 class InstanceKlass{
     int magic;
+    short majorVersion;
+    short minorVersion;
+    
+public:
+    int getMagic() const;
+    void setMagic(int magic);
+    short getMajorVersion() const;
+    void setMajorVersion(short version);
+    short getMinorVersion() const;
+    void setMinorVersion(short version);
 };
 
 

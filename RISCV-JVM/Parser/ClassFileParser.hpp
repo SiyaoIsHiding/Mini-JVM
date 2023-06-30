@@ -14,7 +14,7 @@
 class ClassFileParser{
 public:
     static InstanceKlass* Parser(ClassReader *classReader);
-    static void checkAndPutMagic(ClassReader *classReader, InstanceKlass *klass);
+    static void putMagic(ClassReader *classReader, InstanceKlass *klass);
 };
 
 #endif /* ClassFileParser_hpp */
