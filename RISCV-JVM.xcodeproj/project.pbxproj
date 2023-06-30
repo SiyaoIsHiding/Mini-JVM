@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3F32666C2A498593009298CB /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F32666B2A498593009298CB /* main.cpp */; };
+		3F3266752A49860B009298CB /* ClassReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3266732A49860B009298CB /* ClassReader.cpp */; };
+		3F3DD6432A4EA82300420E34 /* InstanceKlass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6412A4EA82300420E34 /* InstanceKlass.cpp */; };
+		3F3DD6472A4EA91500420E34 /* ClassFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		3F3266682A498593009298CB /* RISCV-JVM */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "RISCV-JVM"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F32666B2A498593009298CB /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3F3266732A49860B009298CB /* ClassReader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassReader.cpp; sourceTree = "<group>"; };
+		3F3266742A49860B009298CB /* ClassReader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassReader.hpp; sourceTree = "<group>"; };
+		3F3DD6412A4EA82300420E34 /* InstanceKlass.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InstanceKlass.cpp; sourceTree = "<group>"; };
+		3F3DD6422A4EA82300420E34 /* InstanceKlass.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InstanceKlass.hpp; sourceTree = "<group>"; };
+		3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassFileParser.cpp; sourceTree = "<group>"; };
+		3F3DD6462A4EA91500420E34 /* ClassFileParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassFileParser.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +66,39 @@
 		3F32666A2A498593009298CB /* RISCV-JVM */ = {
 			isa = PBXGroup;
 			children = (
+				3F3DD6442A4EA89B00420E34 /* Parser */,
+				3F3DD6402A4EA80B00420E34 /* OOP */,
+				3F3266722A4985F2009298CB /* Stream */,
 				3F32666B2A498593009298CB /* main.cpp */,
 			);
 			path = "RISCV-JVM";
+			sourceTree = "<group>";
+		};
+		3F3266722A4985F2009298CB /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				3F3266732A49860B009298CB /* ClassReader.cpp */,
+				3F3266742A49860B009298CB /* ClassReader.hpp */,
+			);
+			path = Stream;
+			sourceTree = "<group>";
+		};
+		3F3DD6402A4EA80B00420E34 /* OOP */ = {
+			isa = PBXGroup;
+			children = (
+				3F3DD6412A4EA82300420E34 /* InstanceKlass.cpp */,
+				3F3DD6422A4EA82300420E34 /* InstanceKlass.hpp */,
+			);
+			path = OOP;
+			sourceTree = "<group>";
+		};
+		3F3DD6442A4EA89B00420E34 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */,
+				3F3DD6462A4EA91500420E34 /* ClassFileParser.hpp */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +158,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3DD6432A4EA82300420E34 /* InstanceKlass.cpp in Sources */,
 				3F32666C2A498593009298CB /* main.cpp in Sources */,
+				3F3266752A49860B009298CB /* ClassReader.cpp in Sources */,
+				3F3DD6472A4EA91500420E34 /* ClassFileParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

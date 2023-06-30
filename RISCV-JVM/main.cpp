@@ -6,9 +6,11 @@
 //
 
 #include <iostream>
+#include "Stream/ClassReader.hpp"
 
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << "Hello, World!\n";
+    ClassReader *classReader = ClassReader::readByPath("/Users/jane/Documents/CompilerConstructor/Test.class");
+    printf("%X\n", classReader->read4Byte());
     return 0;
 }
