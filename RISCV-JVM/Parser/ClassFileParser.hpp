@@ -8,13 +8,15 @@
 #ifndef ClassFileParser_hpp
 #define ClassFileParser_hpp
 
-#include <stdio.h>
 #include "../OOP/InstanceKlass.hpp"
 #include "../Stream/ClassReader.hpp"
-class ClassFileParser{
+#include <stdio.h>
+class ClassFileParser {
 public:
-    static InstanceKlass* Parser(ClassReader *classReader);
+    static InstanceKlass *Parser(ClassReader *classReader);
     static void putMagic(ClassReader *classReader, InstanceKlass *klass);
+    static void putMajorVersion(ClassReader *classReader, InstanceKlass *klass);
+    static void putMinorVersion(ClassReader *classReader, InstanceKlass *klass);
 };
 
 #endif /* ClassFileParser_hpp */

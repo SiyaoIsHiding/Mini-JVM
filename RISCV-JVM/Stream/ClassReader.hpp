@@ -8,23 +8,22 @@
 #ifndef ClassReader_hpp
 #define ClassReader_hpp
 
-#include <stdio.h>
 #include "string"
+#include <stdio.h>
 
 using namespace std;
-class ClassReader{
-    char *data;
-    int cur = 0;
-    
+class ClassReader {
+  char *data;
+  int cur = 0;
+
 public:
-    ClassReader(char *data);
-    
-    static ClassReader* readByPath(string path);
-    
-    unsigned char read1Byte();
-    unsigned short read2Byte();
-    unsigned int read4Byte();
-    
+  ClassReader(char *data);
+
+  static ClassReader *readByPath(string path);
+
+  unsigned char read1Byte();
+  unsigned short read2Byte();
+  unsigned int read4Byte();
 };
 
 #endif /* ClassReader_hpp */
