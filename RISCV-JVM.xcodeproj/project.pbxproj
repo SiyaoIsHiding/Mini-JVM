@@ -11,6 +11,8 @@
 		3F3266752A49860B009298CB /* ClassReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3266732A49860B009298CB /* ClassReader.cpp */; };
 		3F3DD6432A4EA82300420E34 /* InstanceKlass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6412A4EA82300420E34 /* InstanceKlass.cpp */; };
 		3F3DD6472A4EA91500420E34 /* ClassFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */; };
+		3F3DD64A2A4EBA2C00420E34 /* ConstantPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6482A4EBA2C00420E34 /* ConstantPool.cpp */; };
+		3F3DD64E2A4F799600420E34 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD64C2A4F799600420E34 /* Constants.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,10 @@
 		3F3DD6422A4EA82300420E34 /* InstanceKlass.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InstanceKlass.hpp; sourceTree = "<group>"; };
 		3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassFileParser.cpp; sourceTree = "<group>"; };
 		3F3DD6462A4EA91500420E34 /* ClassFileParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassFileParser.hpp; sourceTree = "<group>"; };
+		3F3DD6482A4EBA2C00420E34 /* ConstantPool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConstantPool.cpp; sourceTree = "<group>"; };
+		3F3DD6492A4EBA2C00420E34 /* ConstantPool.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConstantPool.hpp; sourceTree = "<group>"; };
+		3F3DD64C2A4F799600420E34 /* Constants.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
+		3F3DD64D2A4F799600420E34 /* Constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 		3F32666A2A498593009298CB /* RISCV-JVM */ = {
 			isa = PBXGroup;
 			children = (
+				3F3DD64B2A4F6F4F00420E34 /* Util */,
 				3F3DD6442A4EA89B00420E34 /* Parser */,
 				3F3DD6402A4EA80B00420E34 /* OOP */,
 				3F3266722A4985F2009298CB /* Stream */,
@@ -88,6 +95,8 @@
 			children = (
 				3F3DD6412A4EA82300420E34 /* InstanceKlass.cpp */,
 				3F3DD6422A4EA82300420E34 /* InstanceKlass.hpp */,
+				3F3DD6482A4EBA2C00420E34 /* ConstantPool.cpp */,
+				3F3DD6492A4EBA2C00420E34 /* ConstantPool.hpp */,
 			);
 			path = OOP;
 			sourceTree = "<group>";
@@ -99,6 +108,15 @@
 				3F3DD6462A4EA91500420E34 /* ClassFileParser.hpp */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		3F3DD64B2A4F6F4F00420E34 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3F3DD64C2A4F799600420E34 /* Constants.cpp */,
+				3F3DD64D2A4F799600420E34 /* Constants.hpp */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,7 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F3DD6432A4EA82300420E34 /* InstanceKlass.cpp in Sources */,
+				3F3DD64E2A4F799600420E34 /* Constants.cpp in Sources */,
 				3F32666C2A498593009298CB /* main.cpp in Sources */,
+				3F3DD64A2A4EBA2C00420E34 /* ConstantPool.cpp in Sources */,
 				3F3266752A49860B009298CB /* ClassReader.cpp in Sources */,
 				3F3DD6472A4EA91500420E34 /* ClassFileParser.cpp in Sources */,
 			);

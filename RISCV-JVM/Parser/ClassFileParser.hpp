@@ -10,6 +10,7 @@
 
 #include "../OOP/InstanceKlass.hpp"
 #include "../Stream/ClassReader.hpp"
+#include "../Util/Constants.hpp"
 #include <stdio.h>
 class ClassFileParser {
 public:
@@ -17,6 +18,7 @@ public:
     static void putMagic(ClassReader *classReader, InstanceKlass *klass);
     static void putMajorVersion(ClassReader *classReader, InstanceKlass *klass);
     static void putMinorVersion(ClassReader *classReader, InstanceKlass *klass);
+    static void putConstantPool(ClassReader *classReader, InstanceKlass *klass);
 };
 
 #endif /* ClassFileParser_hpp */

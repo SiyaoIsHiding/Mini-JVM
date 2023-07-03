@@ -6,6 +6,7 @@
 //
 
 #include "InstanceKlass.hpp"
+#include "ConstantPool.hpp"
 
 int InstanceKlass::getMagic() const { return InstanceKlass::magic; }
 
@@ -36,3 +37,12 @@ void InstanceKlass::setMinorVersion(short version)
 {
     InstanceKlass::minorVersion = version;
 }
+
+ConstantPool *InstanceKlass::getConstantPool() const { 
+    return InstanceKlass::constantPool;
+}
+
+void InstanceKlass::setConstantPool(ConstantPool *pool) { 
+    InstanceKlass::constantPool = pool;
+}
+

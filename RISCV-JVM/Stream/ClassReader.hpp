@@ -24,6 +24,7 @@ public:
   unsigned char read1Byte();
   unsigned short read2Byte();
   unsigned int read4Byte();
+    void readNByte(int len, char *target);
 };
 
 #endif /* ClassReader_hpp */

@@ -47,3 +47,10 @@ unsigned int ClassReader::read4Byte()
     cur += 4;
     return htonl(*res);
 }
+
+void ClassReader::readNByte(int len, char *target){
+    for (int i = 0; i < len; i++){
+        target[i] = read1Byte();
+    }
+    target[len] = '\0';
+}
