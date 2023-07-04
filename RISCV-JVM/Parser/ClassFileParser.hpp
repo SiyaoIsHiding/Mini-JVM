@@ -14,11 +14,15 @@
 #include <stdio.h>
 class ClassFileParser {
 public:
-    static InstanceKlass *Parser(ClassReader *classReader);
-    static void putMagic(ClassReader *classReader, InstanceKlass *klass);
-    static void putMajorVersion(ClassReader *classReader, InstanceKlass *klass);
-    static void putMinorVersion(ClassReader *classReader, InstanceKlass *klass);
-    static void putConstantPool(ClassReader *classReader, InstanceKlass *klass);
+    static InstanceKlass* Parser(ClassReader* classReader);
+    static void putMagic(ClassReader* classReader, InstanceKlass* klass);
+    static void putMajorVersion(ClassReader* classReader, InstanceKlass* klass);
+    static void putMinorVersion(ClassReader* classReader, InstanceKlass* klass);
+    static void putConstantPool(ClassReader* classReader, InstanceKlass* klass);
+    static void putAccessFlag(ClassReader* classReader, InstanceKlass* klass);
+    static void putClassNames(ClassReader* classReader, InstanceKlass* klass);
+    static void putInterfaces(ClassReader *classReader, InstanceKlass *klass);
+    static void putFields(ClassReader *classReader, InstanceKlass *klass);
 };
 
 #endif /* ClassFileParser_hpp */

@@ -8,10 +8,10 @@
 #ifndef ConstantPool_hpp
 #define ConstantPool_hpp
 
-#include <stdio.h>
 #include <map>
+#include <stdio.h>
 
-class ConstantPool{
+class ConstantPool {
 public:
     short count;
     char* tag; // type of the constant

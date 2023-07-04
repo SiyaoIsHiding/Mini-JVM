@@ -38,11 +38,63 @@ void InstanceKlass::setMinorVersion(short version)
     InstanceKlass::minorVersion = version;
 }
 
-ConstantPool *InstanceKlass::getConstantPool() const { 
+ConstantPool* InstanceKlass::getConstantPool() const
+{
     return InstanceKlass::constantPool;
 }
 
-void InstanceKlass::setConstantPool(ConstantPool *pool) { 
+void InstanceKlass::setConstantPool(ConstantPool* pool)
+{
     InstanceKlass::constantPool = pool;
 }
 
+short InstanceKlass::getAccessFlag() const { 
+    return accessFlag;
+}
+
+void InstanceKlass::setAccessFlag(short flag) { 
+    accessFlag = flag;
+}
+
+short InstanceKlass::getClassName() const { 
+    return className;
+}
+
+void InstanceKlass::setClassName(short name) { 
+    className = name;
+}
+
+short InstanceKlass::getSuperClassName() const { 
+    return superClassName;
+}
+
+void InstanceKlass::setSuperClassName(short name) { 
+    superClassName = name;
+}
+
+InterfaceInfo *InstanceKlass::getInterfaces() const { 
+    return interfaces;
+}
+
+void InstanceKlass::setInterfaces(InterfaceInfo *interfaces) {
+    InstanceKlass::interfaces = interfaces;
+}
+
+FieldsInfo* InstanceKlass::getFields() const {
+    return fields;
+}
+
+void InstanceKlass::setFields(FieldsInfo *fields){
+    InstanceKlass::fields = fields;
+}
+
+InterfaceInfo::InterfaceInfo(){}
+InterfaceInfo::InterfaceInfo(short ind, const std::string &name){
+    constanPoolInd = ind;
+    interfaceName = name;
+}
+
+FieldsInfo::FieldsInfo() {}
+
+FieldsInfo::FieldsInfo(short accessFlag, short nameInd, short descriptorInd, short attributeCnt) : accessFlag(accessFlag), nameInd(nameInd), descriptorInd(descriptorInd), attributeCnt(attributeCnt){
+}
