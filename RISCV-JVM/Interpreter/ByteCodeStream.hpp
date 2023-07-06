@@ -29,6 +29,8 @@ public:
     void setIndex(int index);
     char* getCodes() const;
     void setCodes(char* codes);
+    unsigned char readBy1(int& index);
+    unsigned char readBy2(int& index);
 };
 
 #endif /* ByteCode_hpp */

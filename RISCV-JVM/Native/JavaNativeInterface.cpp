@@ -6,7 +6,7 @@
 //
 
 #include "JavaNativeInterface.hpp"
-
+#include "../Interpreter/BytecodeInterpreter.hpp"
 
 MethodInfo *JavaNativeInterface::getMethod(InstanceKlass *klass, std::string name, std::string descriptor) {
     MethodInfo* methods = klass->getMethods();
@@ -23,7 +23,7 @@ void JavaNativeInterface::callStaticMethod(JavaThread *thread, MethodInfo *metho
     printf("Running method: %s\n", method->getName().c_str());
     JavaVFrame* frame = new JavaVFrame;
     thread->stack.push(frame);
-    // run the codes
+    BytecodeInterpreter::run(thread, method);
     thread->stack.pop();
     delete frame;
 }

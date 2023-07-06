@@ -175,11 +175,12 @@ void ClassFileParser::putMethods(ClassReader* classReader, InstanceKlass* klass)
         short di = classReader->read2Byte();
         methods[i].setDescriptorInd(di);
         short attributeCnt = classReader->read2Byte();
+        printf("attributeCnt: %d\n", attributeCnt);
         CodeAttributeInfo* attributes = new CodeAttributeInfo[attributeCnt];
         methods[i].setAttributes(attributes);
         // Assume all of them are code attributes for now
         for (int j = 0; j < attributeCnt; j++) {
-            CodeAttributeInfo* codeAttribute = new CodeAttributeInfo;
+            CodeAttributeInfo* codeAttribute = attributes+j;
             short nameInd = classReader->read2Byte();
             std::string name = (std::string)klass->getConstantPool()->data[nameInd];
             codeAttribute->setNameInd(nameInd);
@@ -192,6 +193,8 @@ void ClassFileParser::putMethods(ClassReader* classReader, InstanceKlass* klass)
             char* codes = new char[codeLen];
             classReader->readNByte(codeLen, codes);
             ByteCodeStream* byteCodeStream = new ByteCodeStream;
+            codeAttribute->setCodes(byteCodeStream);
+            byteCodeStream->setLength(codeLen);
             byteCodeStream->setBelongMethod(methods + i);
             byteCodeStream->setCodes(codes);
             byteCodeStream->setIndex(0);

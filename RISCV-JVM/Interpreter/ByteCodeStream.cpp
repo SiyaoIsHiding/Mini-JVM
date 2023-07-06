@@ -56,3 +56,14 @@ void ByteCodeStream::setCodes(char* codes)
 {
     ByteCodeStream::codes = codes;
 }
+
+
+unsigned char ByteCodeStream::readBy1(int &index) { 
+    return (codes[index++]);
+}
+
+unsigned char ByteCodeStream::readBy2(int &index) { 
+    unsigned short res = *(codes+index);
+    index+=2;
+    return htons(res);
+}

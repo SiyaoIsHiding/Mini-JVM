@@ -23,6 +23,8 @@
 		3F41D7F52A56891100689856 /* JavaThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7F32A56891100689856 /* JavaThread.cpp */; };
 		3F41D7F82A56891A00689856 /* JavaVFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7F62A56891A00689856 /* JavaVFrame.cpp */; };
 		3F41D7FC2A568A8400689856 /* JavaNativeInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7FA2A568A8400689856 /* JavaNativeInterface.cpp */; };
+		3F449E142A56A94D00F8A471 /* BytecodeInterpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F449E122A56A94D00F8A471 /* BytecodeInterpreter.cpp */; };
+		3F449E172A56AEFF00F8A471 /* CodeRunBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F449E152A56AEFF00F8A471 /* CodeRunBase.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +72,11 @@
 		3F41D7F72A56891A00689856 /* JavaVFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JavaVFrame.hpp; sourceTree = "<group>"; };
 		3F41D7FA2A568A8400689856 /* JavaNativeInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JavaNativeInterface.cpp; sourceTree = "<group>"; };
 		3F41D7FB2A568A8400689856 /* JavaNativeInterface.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JavaNativeInterface.hpp; sourceTree = "<group>"; };
+		3F449E122A56A94D00F8A471 /* BytecodeInterpreter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BytecodeInterpreter.cpp; sourceTree = "<group>"; };
+		3F449E132A56A94D00F8A471 /* BytecodeInterpreter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BytecodeInterpreter.hpp; sourceTree = "<group>"; };
+		3F449E152A56AEFF00F8A471 /* CodeRunBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CodeRunBase.cpp; sourceTree = "<group>"; };
+		3F449E162A56AEFF00F8A471 /* CodeRunBase.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CodeRunBase.hpp; sourceTree = "<group>"; };
+		3F449E192A56AFD400F8A471 /* InstructionCode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InstructionCode.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +176,11 @@
 			children = (
 				3F41D7E62A53F18C00689856 /* ByteCodeStream.cpp */,
 				3F41D7E72A53F18C00689856 /* ByteCodeStream.hpp */,
+				3F449E122A56A94D00F8A471 /* BytecodeInterpreter.cpp */,
+				3F449E132A56A94D00F8A471 /* BytecodeInterpreter.hpp */,
+				3F449E152A56AEFF00F8A471 /* CodeRunBase.cpp */,
+				3F449E162A56AEFF00F8A471 /* CodeRunBase.hpp */,
+				3F449E192A56AFD400F8A471 /* InstructionCode.hpp */,
 			);
 			path = Interpreter;
 			sourceTree = "<group>";
@@ -259,7 +271,9 @@
 				3F3DD6432A4EA82300420E34 /* InstanceKlass.cpp in Sources */,
 				3F3DD64E2A4F799600420E34 /* Constants.cpp in Sources */,
 				3F41D7E12A53A82200689856 /* AttributeInfo.cpp in Sources */,
+				3F449E172A56AEFF00F8A471 /* CodeRunBase.cpp in Sources */,
 				3F32666C2A498593009298CB /* main.cpp in Sources */,
+				3F449E142A56A94D00F8A471 /* BytecodeInterpreter.cpp in Sources */,
 				3F41D7F82A56891A00689856 /* JavaVFrame.cpp in Sources */,
 				3F41D7DE2A53A7EC00689856 /* MethodInfo.cpp in Sources */,
 				3F3DD64A2A4EBA2C00420E34 /* ConstantPool.cpp in Sources */,
