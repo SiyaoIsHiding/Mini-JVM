@@ -20,6 +20,9 @@
 		3F41D7EB2A54F22200689856 /* LineNumberTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7E92A54F22200689856 /* LineNumberTable.cpp */; };
 		3F41D7EE2A5635AC00689856 /* LocalVariableTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7EC2A5635AC00689856 /* LocalVariableTable.cpp */; };
 		3F41D7F12A5645AE00689856 /* ClassLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7EF2A5645AE00689856 /* ClassLoader.cpp */; };
+		3F41D7F52A56891100689856 /* JavaThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7F32A56891100689856 /* JavaThread.cpp */; };
+		3F41D7F82A56891A00689856 /* JavaVFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7F62A56891A00689856 /* JavaVFrame.cpp */; };
+		3F41D7FC2A568A8400689856 /* JavaNativeInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7FA2A568A8400689856 /* JavaNativeInterface.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -61,6 +64,12 @@
 		3F41D7ED2A5635AC00689856 /* LocalVariableTable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LocalVariableTable.hpp; sourceTree = "<group>"; };
 		3F41D7EF2A5645AE00689856 /* ClassLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassLoader.cpp; sourceTree = "<group>"; };
 		3F41D7F02A5645AE00689856 /* ClassLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassLoader.hpp; sourceTree = "<group>"; };
+		3F41D7F32A56891100689856 /* JavaThread.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JavaThread.cpp; sourceTree = "<group>"; };
+		3F41D7F42A56891100689856 /* JavaThread.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JavaThread.hpp; sourceTree = "<group>"; };
+		3F41D7F62A56891A00689856 /* JavaVFrame.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JavaVFrame.cpp; sourceTree = "<group>"; };
+		3F41D7F72A56891A00689856 /* JavaVFrame.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JavaVFrame.hpp; sourceTree = "<group>"; };
+		3F41D7FA2A568A8400689856 /* JavaNativeInterface.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = JavaNativeInterface.cpp; sourceTree = "<group>"; };
+		3F41D7FB2A568A8400689856 /* JavaNativeInterface.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JavaNativeInterface.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +102,8 @@
 		3F32666A2A498593009298CB /* RISCV-JVM */ = {
 			isa = PBXGroup;
 			children = (
+				3F41D7F92A568A6200689856 /* Native */,
+				3F41D7F22A56884D00689856 /* Runtime */,
 				3F41D7E52A53F17800689856 /* Interpreter */,
 				3F3DD64B2A4F6F4F00420E34 /* Util */,
 				3F3DD6442A4EA89B00420E34 /* Parser */,
@@ -162,6 +173,26 @@
 			path = Interpreter;
 			sourceTree = "<group>";
 		};
+		3F41D7F22A56884D00689856 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				3F41D7F32A56891100689856 /* JavaThread.cpp */,
+				3F41D7F42A56891100689856 /* JavaThread.hpp */,
+				3F41D7F62A56891A00689856 /* JavaVFrame.cpp */,
+				3F41D7F72A56891A00689856 /* JavaVFrame.hpp */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		3F41D7F92A568A6200689856 /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				3F41D7FA2A568A8400689856 /* JavaNativeInterface.cpp */,
+				3F41D7FB2A568A8400689856 /* JavaNativeInterface.hpp */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,6 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F41D7EE2A5635AC00689856 /* LocalVariableTable.cpp in Sources */,
+				3F41D7F52A56891100689856 /* JavaThread.cpp in Sources */,
+				3F41D7FC2A568A8400689856 /* JavaNativeInterface.cpp in Sources */,
 				3F41D7EB2A54F22200689856 /* LineNumberTable.cpp in Sources */,
 				3F41D7E42A53DF4E00689856 /* CodeAttributeInfo.cpp in Sources */,
 				3F41D7F12A5645AE00689856 /* ClassLoader.cpp in Sources */,
@@ -227,6 +260,7 @@
 				3F3DD64E2A4F799600420E34 /* Constants.cpp in Sources */,
 				3F41D7E12A53A82200689856 /* AttributeInfo.cpp in Sources */,
 				3F32666C2A498593009298CB /* main.cpp in Sources */,
+				3F41D7F82A56891A00689856 /* JavaVFrame.cpp in Sources */,
 				3F41D7DE2A53A7EC00689856 /* MethodInfo.cpp in Sources */,
 				3F3DD64A2A4EBA2C00420E34 /* ConstantPool.cpp in Sources */,
 				3F3266752A49860B009298CB /* ClassReader.cpp in Sources */,
@@ -350,6 +384,7 @@
 		3F3266702A498594009298CB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,6 +393,7 @@
 		3F3266712A498594009298CB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

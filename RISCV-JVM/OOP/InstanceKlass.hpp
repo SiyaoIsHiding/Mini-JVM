@@ -51,7 +51,9 @@ class InstanceKlass {
     short thisClass;
     short superClassName;
     InterfaceInfo* interfaces;
+    short fieldCnt;
     FieldInfo* fields;
+    short methodCnt;
     MethodInfo* methods;
 
 public:
@@ -75,6 +77,10 @@ public:
     void setFields(FieldInfo* fields);
     MethodInfo* getMethods() const;
     void setMethods(MethodInfo* methods);
+    short getFieldCnt() const;
+    void setFieldCnt(short cnt);
+    short getMethodCnt() const;
+    void setMethodCnt(short cnt);
 };
 
 #endif /* InstanceKlass_hpp */

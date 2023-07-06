@@ -147,6 +147,7 @@ void ClassFileParser::putInterfaces(ClassReader* classReader, InstanceKlass* kla
 void ClassFileParser::putFields(ClassReader* classReader, InstanceKlass* klass)
 {
     short count = classReader->read2Byte();
+    klass->setFieldCnt(count);
     FieldInfo* fields = new FieldInfo[count];
     for (int i = 0; i < count; i++) {
         short af = classReader->read2Byte();
@@ -161,6 +162,7 @@ void ClassFileParser::putFields(ClassReader* classReader, InstanceKlass* klass)
 void ClassFileParser::putMethods(ClassReader* classReader, InstanceKlass* klass)
 {
     short methodCount = classReader->read2Byte();
+    klass->setMethodCnt(methodCount);
     MethodInfo* methods = new MethodInfo[methodCount];
     klass->setMethods(methods);
     for (int i = 0; i < methodCount; i++) {

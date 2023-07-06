@@ -164,3 +164,26 @@ void InstanceKlass::setMethods(MethodInfo* methods)
 {
     this->methods = methods;
 }
+
+short InstanceKlass::getMethodCnt() const
+{
+    return methodCnt;
+}
+
+void InstanceKlass::setMethodCnt(short cnt)
+{
+    methodCnt = cnt;
+}
+
+short InstanceKlass::getFieldCnt() const
+{
+    return fieldCnt;
+}
+
+void InstanceKlass::setFieldCnt(short cnt)
+{
+    fieldCnt = cnt;
+}
+
+
+
