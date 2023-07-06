@@ -6,7 +6,7 @@
 //
 
 #include "ClassFileParser.hpp"
-
+#include "../Interpreter/ByteCodeStream.hpp"
 InstanceKlass* ClassFileParser::Parser(ClassReader* classReader)
 {
     InstanceKlass* klass = new InstanceKlass;
@@ -17,6 +17,8 @@ InstanceKlass* ClassFileParser::Parser(ClassReader* classReader)
     putAccessFlag(classReader, klass);
     putClassNames(classReader, klass);
     putInterfaces(classReader, klass);
+    putFields(classReader, klass);
+    putMethods(classReader, klass);
     return klass;
 }
 
@@ -89,8 +91,7 @@ void ClassFileParser::putConstantPool(ClassReader* classReader, InstanceKlass* k
 
         case CONSTANT_Fieldref:
         case CONSTANT_Methodref:
-        case CONSTANT_InterfaceMethodRef:
-            {
+        case CONSTANT_InterfaceMethodRef: {
             int* data = new int;
             *data = classReader->read4Byte();
             pool->data[i] = (char*)data;
@@ -124,15 +125,17 @@ void ClassFileParser::putAccessFlag(ClassReader* classReader, InstanceKlass* kla
     klass->setAccessFlag(flag);
 }
 
-void ClassFileParser::putClassNames(ClassReader *classReader, InstanceKlass *klass) { 
-    klass->setClassName(classReader->read2Byte());
+void ClassFileParser::putClassNames(ClassReader* classReader, InstanceKlass* klass)
+{
+    klass->setThisClass(classReader->read2Byte());
     klass->setSuperClassName(classReader->read2Byte());
 }
 
-void ClassFileParser::putInterfaces(ClassReader *classReader, InstanceKlass *klass) {
+void ClassFileParser::putInterfaces(ClassReader* classReader, InstanceKlass* klass)
+{
     short count = classReader->read2Byte();
     InterfaceInfo* interfaces = new InterfaceInfo[count];
-    for (int i = 0; i < count; i++){
+    for (int i = 0; i < count; i++) {
         unsigned short constantPoolInd = classReader->read2Byte();
         int nameInd = *(klass->getConstantPool()->data[constantPoolInd]);
         string name = klass->getConstantPool()->data[nameInd];
@@ -141,19 +144,102 @@ void ClassFileParser::putInterfaces(ClassReader *classReader, InstanceKlass *kla
     klass->setInterfaces(interfaces);
 }
 
-void ClassFileParser::putFields(ClassReader *classReader, InstanceKlass *klass) { 
+void ClassFileParser::putFields(ClassReader* classReader, InstanceKlass* klass)
+{
     short count = classReader->read2Byte();
-    FieldsInfo* fields = new FieldsInfo[count];
-    for(int i = 0; i < count; i++){
+    FieldInfo* fields = new FieldInfo[count];
+    for (int i = 0; i < count; i++) {
         short af = classReader->read2Byte();
         short ni = classReader->read2Byte();
         short di = classReader->read2Byte();
         short ac = classReader->read2Byte();
-        fields[i] = *(new FieldsInfo(af, ni, di, ac));
+        fields[i] = *(new FieldInfo(af, ni, di, ac));
     }
     klass->setFields(fields);
 }
 
+void ClassFileParser::putMethods(ClassReader* classReader, InstanceKlass* klass)
+{
+    short methodCount = classReader->read2Byte();
+    MethodInfo* methods = new MethodInfo[methodCount];
+    klass->setMethods(methods);
+    for (int i = 0; i < methodCount; i++) {
+        // for each method
+        short af = classReader->read2Byte();
+        methods[i].setAccessFlag(af);
+        short ni = classReader->read2Byte();
+        methods[i].setNameInd(ni);
+        methods[i].setName((std::string)klass->getConstantPool()->data[ni]);
+        short di = classReader->read2Byte();
+        methods[i].setDescriptorInd(di);
+        short attributeCnt = classReader->read2Byte();
+        CodeAttributeInfo* attributes = new CodeAttributeInfo[attributeCnt];
+        methods[i].setAttributes(attributes);
+        // Assume all of them are code attributes for now
+        for (int j = 0; j < attributeCnt; j++) {
+            CodeAttributeInfo* codeAttribute = new CodeAttributeInfo;
+            short nameInd = classReader->read2Byte();
+            std::string name = (std::string)klass->getConstantPool()->data[nameInd];
+            codeAttribute->setNameInd(nameInd);
+            codeAttribute->setName(name);
+            int _attriLen = classReader->read4Byte();
+            codeAttribute->setMaxStack(classReader->read2Byte());
+            codeAttribute->setMaxLocals(classReader->read2Byte());
+            int codeLen = classReader->read4Byte();
+            codeAttribute->setCodeLen(codeLen);
+            char* codes = new char[codeLen];
+            classReader->readNByte(codeLen, codes);
+            ByteCodeStream* byteCodeStream = new ByteCodeStream;
+            byteCodeStream->setBelongMethod(methods + i);
+            byteCodeStream->setCodes(codes);
+            byteCodeStream->setIndex(0);
+            // assume zero exception table length
+            classReader->read2Byte();
+            short attributeCnt = classReader->read2Byte();
+            for (int k = 0; k < attributeCnt; k++) {
+                short nameInd = classReader->read2Byte();
+                std::string name = (std::string)klass->getConstantPool()->data[nameInd];
+                if (name == "LineNumberTable") {
+                    parseLineNumberTable(classReader, klass, codeAttribute, nameInd, name);
+                } else if (name == "LocalVariableTable") {
+                    parseLocalVariableTable(classReader, klass, codeAttribute, nameInd, name);
+                } else {
+                    printf("attribute format not supported: %s\n", name.c_str());
+                }
+            }
+        }
+    }
+}
 
+void ClassFileParser::parseLineNumberTable(ClassReader* classReader, InstanceKlass* klass, CodeAttributeInfo* codeAttribute, short nameInd, std::string attributeName)
+{
+    LineNumberTable* lineNumberTable = new LineNumberTable;
+    lineNumberTable->setNameInd(nameInd);
+    codeAttribute->attributes[attributeName] = lineNumberTable;
+    lineNumberTable->setLength(classReader->read4Byte());
+    short tableLen = classReader->read2Byte();
+    lineNumberTable->setTableLen(tableLen);
+    lineNumberTable->table = new LineNumberTable::Item[tableLen];
+    for (int i = 0; i < tableLen; i++) {
+        lineNumberTable->table[i].setStartPc(classReader->read2Byte());
+        lineNumberTable->table[i].setLineNum(classReader->read2Byte());
+    }
+};
 
-
+void ClassFileParser::parseLocalVariableTable(ClassReader* classReader, InstanceKlass* klass, CodeAttributeInfo* codeAttribute, short nameInd, std::string attributeName)
+{
+    LocalVariableTable* localVariableTable = new LocalVariableTable;
+    localVariableTable->setNameInd(nameInd);
+    codeAttribute->attributes[attributeName] = localVariableTable;
+    localVariableTable->setLength(classReader->read4Byte());
+    short tableLen = classReader->read2Byte();
+    localVariableTable->setTableLen(tableLen);
+    localVariableTable->table = new LocalVariableTable::Item[tableLen];
+    for (int i = 0; i < tableLen; i++) {
+        localVariableTable->table[i].setStartPc(classReader->read2Byte());
+        localVariableTable->table[i].setLength(classReader->read2Byte());
+        localVariableTable->table[i].setNameInd(classReader->read2Byte());
+        localVariableTable->table[i].setDescriptorInd(classReader->read2Byte());
+        localVariableTable->table[i].setInd(classReader->read2Byte());
+    }
+}

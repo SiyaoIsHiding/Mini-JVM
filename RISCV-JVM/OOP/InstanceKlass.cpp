@@ -48,53 +48,119 @@ void InstanceKlass::setConstantPool(ConstantPool* pool)
     InstanceKlass::constantPool = pool;
 }
 
-short InstanceKlass::getAccessFlag() const { 
+short InstanceKlass::getAccessFlag() const
+{
     return accessFlag;
 }
 
-void InstanceKlass::setAccessFlag(short flag) { 
+void InstanceKlass::setAccessFlag(short flag)
+{
     accessFlag = flag;
 }
 
-short InstanceKlass::getClassName() const { 
-    return className;
+short InstanceKlass::getThisClass() const
+{
+    return thisClass;
 }
 
-void InstanceKlass::setClassName(short name) { 
-    className = name;
+void InstanceKlass::setThisClass(short thisClassInd)
+{
+    thisClass = thisClassInd;
 }
 
-short InstanceKlass::getSuperClassName() const { 
+short InstanceKlass::getSuperClassName() const
+{
     return superClassName;
 }
 
-void InstanceKlass::setSuperClassName(short name) { 
+void InstanceKlass::setSuperClassName(short name)
+{
     superClassName = name;
 }
 
-InterfaceInfo *InstanceKlass::getInterfaces() const { 
+InterfaceInfo* InstanceKlass::getInterfaces() const
+{
     return interfaces;
 }
 
-void InstanceKlass::setInterfaces(InterfaceInfo *interfaces) {
+void InstanceKlass::setInterfaces(InterfaceInfo* interfaces)
+{
     InstanceKlass::interfaces = interfaces;
 }
 
-FieldsInfo* InstanceKlass::getFields() const {
+FieldInfo* InstanceKlass::getFields() const
+{
     return fields;
 }
 
-void InstanceKlass::setFields(FieldsInfo *fields){
+void InstanceKlass::setFields(FieldInfo* fields)
+{
     InstanceKlass::fields = fields;
 }
 
-InterfaceInfo::InterfaceInfo(){}
-InterfaceInfo::InterfaceInfo(short ind, const std::string &name){
+InterfaceInfo::InterfaceInfo() { }
+InterfaceInfo::InterfaceInfo(short ind, const std::string& name)
+{
     constanPoolInd = ind;
     interfaceName = name;
 }
 
-FieldsInfo::FieldsInfo() {}
+FieldInfo::FieldInfo() { }
 
-FieldsInfo::FieldsInfo(short accessFlag, short nameInd, short descriptorInd, short attributeCnt) : accessFlag(accessFlag), nameInd(nameInd), descriptorInd(descriptorInd), attributeCnt(attributeCnt){
+FieldInfo::FieldInfo(short accessFlag, short nameInd, short descriptorInd, short attributeCnt)
+    : accessFlag(accessFlag)
+    , nameInd(nameInd)
+    , descriptorInd(descriptorInd)
+    , attributeCnt(attributeCnt)
+{
+}
+
+short FieldInfo::getAccessFlag() const
+{
+    return accessFlag;
+}
+
+short FieldInfo::getNameInd() const
+{
+    return nameInd;
+}
+
+short FieldInfo::getDescriptorInd() const
+{
+    return descriptorInd;
+}
+
+short FieldInfo::getAttributeCnt() const
+{
+    return attributeCnt;
+}
+
+void FieldInfo::setAccessFlag(short flag)
+{
+    accessFlag = flag;
+}
+
+void FieldInfo::setNameInd(short ind)
+{
+    nameInd = ind;
+}
+
+void FieldInfo::setDescriptorInd(short ind)
+{
+    descriptorInd = ind;
+}
+
+void FieldInfo::setAttributeCnt(short cnt)
+{
+    attributeCnt = cnt;
+}
+
+MethodInfo* InstanceKlass::getMethods() const
+{
+    return methods;
+}
+
+void InstanceKlass::setMethods(MethodInfo* methods)
+{
+    this->methods = methods;
 }

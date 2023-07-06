@@ -9,26 +9,37 @@
 #define InstanceKlass_hpp
 
 #include "ConstantPool.hpp"
+#include "MethodInfo.hpp"
 #include "string"
 #include <stdio.h>
 #define MAGIC 0xCAFEBABE
 
-class InterfaceInfo{
+class InterfaceInfo {
     short constanPoolInd;
     std::string interfaceName;
+
 public:
-    InterfaceInfo(short ind, const std::string &name);
+    InterfaceInfo(short ind, const std::string& name);
     InterfaceInfo();
 };
 
-class FieldsInfo{
+class FieldInfo {
     short accessFlag;
     short nameInd;
     short descriptorInd;
     short attributeCnt;
+
 public:
-    FieldsInfo();
-    FieldsInfo(short accessFlag, short nameInd, short descriptorInd, short attributeCnt);
+    FieldInfo();
+    FieldInfo(short accessFlag, short nameInd, short descriptorInd, short attributeCnt);
+    short getAccessFlag() const;
+    short getNameInd() const;
+    short getDescriptorInd() const;
+    short getAttributeCnt() const;
+    void setAccessFlag(short flag);
+    void setNameInd(short ind);
+    void setDescriptorInd(short ind);
+    void setAttributeCnt(short cnt);
 };
 
 class InstanceKlass {
@@ -37,10 +48,11 @@ class InstanceKlass {
     short minorVersion;
     ConstantPool* constantPool;
     short accessFlag;
-    short className;
+    short thisClass;
     short superClassName;
     InterfaceInfo* interfaces;
-    FieldsInfo* fields;
+    FieldInfo* fields;
+    MethodInfo* methods;
 
 public:
     int getMagic() const;
@@ -53,15 +65,16 @@ public:
     void setConstantPool(ConstantPool* pool);
     short getAccessFlag() const;
     void setAccessFlag(short flag);
-    short getClassName() const;
-    void setClassName(short name);
+    short getThisClass() const;
+    void setThisClass(short thisClassInd);
     short getSuperClassName() const;
     void setSuperClassName(short name);
     InterfaceInfo* getInterfaces() const;
     void setInterfaces(InterfaceInfo* interfaces);
-    FieldsInfo* getFields() const;
-    void setFields(FieldsInfo *fields);
+    FieldInfo* getFields() const;
+    void setFields(FieldInfo* fields);
+    MethodInfo* getMethods() const;
+    void setMethods(MethodInfo* methods);
 };
-
 
 #endif /* InstanceKlass_hpp */

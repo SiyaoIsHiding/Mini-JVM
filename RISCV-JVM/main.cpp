@@ -6,16 +6,15 @@
 //
 
 #include "OOP/InstanceKlass.hpp"
-#include "Parser/ClassFileParser.hpp"
-#include "Stream/ClassReader.hpp"
+#include "Parser/ClassLoader.hpp"
 #include <iostream>
 
 int main(int argc, const char* argv[])
 {
     // insert code here...
-    ClassReader* classReader = ClassReader::readByPath(
-        "/Users/jane/Documents/CompilerConstructor/Test.class");
-    InstanceKlass* klass = ClassFileParser::Parser(classReader);
-    printf("magic: %X\n", klass->getMagic());
+    ClassLoader::loadClass("Test");
+    short thisClassInd = (short)(*ClassLoader::allClasses["Test"]->getConstantPool()->data[ClassLoader::allClasses["Test"]->getThisClass()]);
+    std::string name = (std::string)(ClassLoader::allClasses["Test"]->getConstantPool()->data[thisClassInd]);
+    printf("class name: %s\n", name.c_str());
     return 0;
 }

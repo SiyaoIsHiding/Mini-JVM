@@ -13,6 +13,13 @@
 		3F3DD6472A4EA91500420E34 /* ClassFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */; };
 		3F3DD64A2A4EBA2C00420E34 /* ConstantPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6482A4EBA2C00420E34 /* ConstantPool.cpp */; };
 		3F3DD64E2A4F799600420E34 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD64C2A4F799600420E34 /* Constants.cpp */; };
+		3F41D7DE2A53A7EC00689856 /* MethodInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7DC2A53A7EC00689856 /* MethodInfo.cpp */; };
+		3F41D7E12A53A82200689856 /* AttributeInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7DF2A53A82200689856 /* AttributeInfo.cpp */; };
+		3F41D7E42A53DF4E00689856 /* CodeAttributeInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7E22A53DF4E00689856 /* CodeAttributeInfo.cpp */; };
+		3F41D7E82A53F18C00689856 /* ByteCodeStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7E62A53F18C00689856 /* ByteCodeStream.cpp */; };
+		3F41D7EB2A54F22200689856 /* LineNumberTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7E92A54F22200689856 /* LineNumberTable.cpp */; };
+		3F41D7EE2A5635AC00689856 /* LocalVariableTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7EC2A5635AC00689856 /* LocalVariableTable.cpp */; };
+		3F41D7F12A5645AE00689856 /* ClassLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7EF2A5645AE00689856 /* ClassLoader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +47,20 @@
 		3F3DD6492A4EBA2C00420E34 /* ConstantPool.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConstantPool.hpp; sourceTree = "<group>"; };
 		3F3DD64C2A4F799600420E34 /* Constants.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
 		3F3DD64D2A4F799600420E34 /* Constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
+		3F41D7DC2A53A7EC00689856 /* MethodInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MethodInfo.cpp; sourceTree = "<group>"; };
+		3F41D7DD2A53A7EC00689856 /* MethodInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MethodInfo.hpp; sourceTree = "<group>"; };
+		3F41D7DF2A53A82200689856 /* AttributeInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AttributeInfo.cpp; sourceTree = "<group>"; };
+		3F41D7E02A53A82200689856 /* AttributeInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AttributeInfo.hpp; sourceTree = "<group>"; };
+		3F41D7E22A53DF4E00689856 /* CodeAttributeInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CodeAttributeInfo.cpp; sourceTree = "<group>"; };
+		3F41D7E32A53DF4E00689856 /* CodeAttributeInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CodeAttributeInfo.hpp; sourceTree = "<group>"; };
+		3F41D7E62A53F18C00689856 /* ByteCodeStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ByteCodeStream.cpp; sourceTree = "<group>"; };
+		3F41D7E72A53F18C00689856 /* ByteCodeStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ByteCodeStream.hpp; sourceTree = "<group>"; };
+		3F41D7E92A54F22200689856 /* LineNumberTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LineNumberTable.cpp; sourceTree = "<group>"; };
+		3F41D7EA2A54F22200689856 /* LineNumberTable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LineNumberTable.hpp; sourceTree = "<group>"; };
+		3F41D7EC2A5635AC00689856 /* LocalVariableTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LocalVariableTable.cpp; sourceTree = "<group>"; };
+		3F41D7ED2A5635AC00689856 /* LocalVariableTable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LocalVariableTable.hpp; sourceTree = "<group>"; };
+		3F41D7EF2A5645AE00689856 /* ClassLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ClassLoader.cpp; sourceTree = "<group>"; };
+		3F41D7F02A5645AE00689856 /* ClassLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ClassLoader.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +93,7 @@
 		3F32666A2A498593009298CB /* RISCV-JVM */ = {
 			isa = PBXGroup;
 			children = (
+				3F41D7E52A53F17800689856 /* Interpreter */,
 				3F3DD64B2A4F6F4F00420E34 /* Util */,
 				3F3DD6442A4EA89B00420E34 /* Parser */,
 				3F3DD6402A4EA80B00420E34 /* OOP */,
@@ -97,6 +119,16 @@
 				3F3DD6422A4EA82300420E34 /* InstanceKlass.hpp */,
 				3F3DD6482A4EBA2C00420E34 /* ConstantPool.cpp */,
 				3F3DD6492A4EBA2C00420E34 /* ConstantPool.hpp */,
+				3F41D7DC2A53A7EC00689856 /* MethodInfo.cpp */,
+				3F41D7DD2A53A7EC00689856 /* MethodInfo.hpp */,
+				3F41D7DF2A53A82200689856 /* AttributeInfo.cpp */,
+				3F41D7E02A53A82200689856 /* AttributeInfo.hpp */,
+				3F41D7E22A53DF4E00689856 /* CodeAttributeInfo.cpp */,
+				3F41D7E32A53DF4E00689856 /* CodeAttributeInfo.hpp */,
+				3F41D7E92A54F22200689856 /* LineNumberTable.cpp */,
+				3F41D7EA2A54F22200689856 /* LineNumberTable.hpp */,
+				3F41D7EC2A5635AC00689856 /* LocalVariableTable.cpp */,
+				3F41D7ED2A5635AC00689856 /* LocalVariableTable.hpp */,
 			);
 			path = OOP;
 			sourceTree = "<group>";
@@ -106,6 +138,8 @@
 			children = (
 				3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */,
 				3F3DD6462A4EA91500420E34 /* ClassFileParser.hpp */,
+				3F41D7EF2A5645AE00689856 /* ClassLoader.cpp */,
+				3F41D7F02A5645AE00689856 /* ClassLoader.hpp */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -117,6 +151,15 @@
 				3F3DD64D2A4F799600420E34 /* Constants.hpp */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		3F41D7E52A53F17800689856 /* Interpreter */ = {
+			isa = PBXGroup;
+			children = (
+				3F41D7E62A53F18C00689856 /* ByteCodeStream.cpp */,
+				3F41D7E72A53F18C00689856 /* ByteCodeStream.hpp */,
+			);
+			path = Interpreter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,11 +219,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F41D7EE2A5635AC00689856 /* LocalVariableTable.cpp in Sources */,
+				3F41D7EB2A54F22200689856 /* LineNumberTable.cpp in Sources */,
+				3F41D7E42A53DF4E00689856 /* CodeAttributeInfo.cpp in Sources */,
+				3F41D7F12A5645AE00689856 /* ClassLoader.cpp in Sources */,
 				3F3DD6432A4EA82300420E34 /* InstanceKlass.cpp in Sources */,
 				3F3DD64E2A4F799600420E34 /* Constants.cpp in Sources */,
+				3F41D7E12A53A82200689856 /* AttributeInfo.cpp in Sources */,
 				3F32666C2A498593009298CB /* main.cpp in Sources */,
+				3F41D7DE2A53A7EC00689856 /* MethodInfo.cpp in Sources */,
 				3F3DD64A2A4EBA2C00420E34 /* ConstantPool.cpp in Sources */,
 				3F3266752A49860B009298CB /* ClassReader.cpp in Sources */,
+				3F41D7E82A53F18C00689856 /* ByteCodeStream.cpp in Sources */,
 				3F3DD6472A4EA91500420E34 /* ClassFileParser.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
