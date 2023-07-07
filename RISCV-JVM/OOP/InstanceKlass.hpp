@@ -10,10 +10,13 @@
 
 #include "ConstantPool.hpp"
 #include "MethodInfo.hpp"
+#include "../Runtime/CommonValue.hpp"
 #include "string"
+#include <map>
 #include <stdio.h>
 #define MAGIC 0xCAFEBABE
 
+class MethodInfo;
 class InterfaceInfo {
     short constanPoolInd;
     std::string interfaceName;
@@ -57,6 +60,7 @@ class InstanceKlass {
     MethodInfo* methods;
 
 public:
+    std::map<std::string, CommonValue*> staticValues;
     int getMagic() const;
     void setMagic(int magic);
     short getMajorVersion() const;

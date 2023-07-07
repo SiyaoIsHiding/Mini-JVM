@@ -36,6 +36,8 @@ public:
     void setAttributeCnt(short attributeCnt);
     void setAttributes(CodeAttributeInfo* attributes);
     void setAttributes(CodeAttributeInfo* attribute, int ind);
+    InstanceKlass* getBelongKlass() const;
+    void setBelongKlass(InstanceKlass* klass);
 };
 
 #endif /* MethodInfo_hpp */

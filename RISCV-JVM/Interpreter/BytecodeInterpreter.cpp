@@ -16,7 +16,7 @@ bool BytecodeInterpreter::run(JavaThread *thread, MethodInfo *method) {
     for(int i = 0; i < codeLen; i++){
         unsigned char opcode = codeStream->readBy1(ind);
         printf("opcode %X\n", opcode);
-        CodeRunBase::run[opcode](thread, method, ind);
+        CodeRunBase::run[opcode](thread, method->getAttributes()->getCodes(), ind);
     }
     return true;
 }

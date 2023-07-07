@@ -13,6 +13,7 @@
 		3F3DD6472A4EA91500420E34 /* ClassFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6452A4EA91500420E34 /* ClassFileParser.cpp */; };
 		3F3DD64A2A4EBA2C00420E34 /* ConstantPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD6482A4EBA2C00420E34 /* ConstantPool.cpp */; };
 		3F3DD64E2A4F799600420E34 /* Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3DD64C2A4F799600420E34 /* Constants.cpp */; };
+		3F3E24DC2A58A269000DDE8F /* CommonValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E24DA2A58A269000DDE8F /* CommonValue.cpp */; };
 		3F41D7DE2A53A7EC00689856 /* MethodInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7DC2A53A7EC00689856 /* MethodInfo.cpp */; };
 		3F41D7E12A53A82200689856 /* AttributeInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7DF2A53A82200689856 /* AttributeInfo.cpp */; };
 		3F41D7E42A53DF4E00689856 /* CodeAttributeInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F41D7E22A53DF4E00689856 /* CodeAttributeInfo.cpp */; };
@@ -52,6 +53,8 @@
 		3F3DD6492A4EBA2C00420E34 /* ConstantPool.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConstantPool.hpp; sourceTree = "<group>"; };
 		3F3DD64C2A4F799600420E34 /* Constants.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Constants.cpp; sourceTree = "<group>"; };
 		3F3DD64D2A4F799600420E34 /* Constants.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
+		3F3E24DA2A58A269000DDE8F /* CommonValue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CommonValue.cpp; sourceTree = "<group>"; };
+		3F3E24DB2A58A269000DDE8F /* CommonValue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CommonValue.hpp; sourceTree = "<group>"; };
 		3F41D7DC2A53A7EC00689856 /* MethodInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MethodInfo.cpp; sourceTree = "<group>"; };
 		3F41D7DD2A53A7EC00689856 /* MethodInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MethodInfo.hpp; sourceTree = "<group>"; };
 		3F41D7DF2A53A82200689856 /* AttributeInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AttributeInfo.cpp; sourceTree = "<group>"; };
@@ -192,6 +195,8 @@
 				3F41D7F42A56891100689856 /* JavaThread.hpp */,
 				3F41D7F62A56891A00689856 /* JavaVFrame.cpp */,
 				3F41D7F72A56891A00689856 /* JavaVFrame.hpp */,
+				3F3E24DA2A58A269000DDE8F /* CommonValue.cpp */,
+				3F3E24DB2A58A269000DDE8F /* CommonValue.hpp */,
 			);
 			path = Runtime;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F41D7EE2A5635AC00689856 /* LocalVariableTable.cpp in Sources */,
+				3F3E24DC2A58A269000DDE8F /* CommonValue.cpp in Sources */,
 				3F41D7F52A56891100689856 /* JavaThread.cpp in Sources */,
 				3F41D7FC2A568A8400689856 /* JavaNativeInterface.cpp in Sources */,
 				3F41D7EB2A54F22200689856 /* LineNumberTable.cpp in Sources */,

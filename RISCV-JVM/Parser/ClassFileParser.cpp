@@ -167,6 +167,7 @@ void ClassFileParser::putMethods(ClassReader* classReader, InstanceKlass* klass)
     klass->setMethods(methods);
     for (int i = 0; i < methodCount; i++) {
         // for each method
+        methods[i].setBelongKlass(klass);
         short af = classReader->read2Byte();
         methods[i].setAccessFlag(af);
         short ni = classReader->read2Byte();

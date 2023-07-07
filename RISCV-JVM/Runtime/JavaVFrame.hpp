@@ -11,10 +11,11 @@
 #include <stdio.h>
 #include "stack"
 #include "map"
+#include "CommonValue.hpp"
 using namespace std;
 class JavaVFrame{
 public:
-    stack<char*> stack; // why char*?
-    map<int, char> locals;
+    stack<CommonValue*> stack; // why char*?
+    map<int, CommonValue> locals;
 };
 #endif /* JavaVFrame_hpp */

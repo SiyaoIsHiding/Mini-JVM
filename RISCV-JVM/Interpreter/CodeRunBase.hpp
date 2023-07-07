@@ -10,14 +10,16 @@
 
 #include "../Runtime/JavaThread.hpp"
 #include "../OOP/MethodInfo.hpp"
+#include "ByteCodeStream.hpp"
 
-typedef void (*CODERUN)(JavaThread* thread, MethodInfo* method, int& index);
+typedef void (*CODERUN)(JavaThread* thread, ByteCodeStream* codeStream, int& index);
 
 class CodeRunBase{
 public:
     static CODERUN run[256];
     static void init();
-    static void funcNOP(JavaThread* thread, MethodInfo* method, int& index);
+    static void funcNOP(JavaThread* thread, ByteCodeStream* codeStream, int& index);
+    static void funcGETSTATIC(JavaThread* thread, ByteCodeStream* codeStrea, int& index);
 };
 
 #endif /* CodeRunBase_hpp */

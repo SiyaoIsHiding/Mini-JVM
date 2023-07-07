@@ -11,4 +11,6 @@
 #include <stdio.h>
 #define NOP             0
 #define ACONST_NULL     1
+
+#define GETSTATIC       178
 #endif /* InstructionCode_hpp */

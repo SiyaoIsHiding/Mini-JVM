@@ -6,7 +6,7 @@
 //
 
 #include "MethodInfo.hpp"
-
+#include "InstanceKlass.hpp"
 short MethodInfo::getAccessFlag() const
 {
     return accessFlag;
@@ -71,3 +71,12 @@ void MethodInfo::setAttributes(CodeAttributeInfo* attribute, int ind)
 {
     MethodInfo::attributes[ind] = *attribute;
 }
+
+InstanceKlass *MethodInfo::getBelongKlass() const { 
+    return belongKlass;
+}
+
+void MethodInfo::setBelongKlass(InstanceKlass *klass) { 
+    this->belongKlass = klass;
+}
+
