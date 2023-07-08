@@ -20,6 +20,9 @@ public:
     static void init();
     static void funcNOP(JavaThread* thread, ByteCodeStream* codeStream, int& index);
     static void funcGETSTATIC(JavaThread* thread, ByteCodeStream* codeStrea, int& index);
+    static void funcICONST_0(JavaThread* thread, ByteCodeStream* codeStrea, int& index);
+    static void funcPUTSTATIC(JavaThread* thread, ByteCodeStream* codeStream, int& index);
+    static void funcLDC(JavaThread* thread, ByteCodeStream* codeStream, int& index);
 };
 
 #endif /* CodeRunBase_hpp */

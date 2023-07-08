@@ -6,3 +6,10 @@
 //
 
 #include "JavaVFrame.hpp"
+
+// it has to be somewhere in the heap
+CommonValue* JavaVFrame::pop(){
+    CommonValue* cv = stack.top();
+    stack.pop();
+    return cv;
+}

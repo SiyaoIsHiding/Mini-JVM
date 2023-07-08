@@ -17,5 +17,6 @@ class JavaVFrame{
 public:
     stack<CommonValue*> stack; // why char*?
     map<int, CommonValue> locals;
+    CommonValue* pop();
 };
 #endif /* JavaVFrame_hpp */
